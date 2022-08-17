@@ -1,25 +1,32 @@
-﻿using DesarrollosAPI.Models;
+﻿using AutoMapper;
+using DesarrollosAPI.Contracts;
+using DesarrollosAPI.DTO;
+using DesarrollosAPI.Models;
 using DesarrollosAPI.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-
+//->CONTROLADOR
+//->DTO
+//->SERVICE
+//->REPO
 namespace DesarrollosAPI.Controllers
 {
-    [ApiController]
     [Route("api/Companies")]
-    public class CompanyController : Controller
+    [ApiController]
+    public class CompanyController : ControllerBase
     {
         private readonly ICompanyService _companyService;
-        public CompanyController(ICompanyService companyService)
+        public CompanyController(ICompanyService service)
         {
-            _companyService = companyService;
+            _companyService = service;
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateCompany(string name, string address)
+        public async Task<IActionResult> CreateCompany(CompanyRequest companyRequest)
         {
-            var createdCompany = _companyService.Create(name, address);
-            return Ok(createdCompany);
+            _companyService.Create(companyRequest);
+            return Ok("Company added succesfuly");
         }
 
         [HttpGet("{id:int}")]
@@ -37,16 +44,18 @@ namespace DesarrollosAPI.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateCompany(int id, string name, string address) {
-            var updatedCompany = _companyService.Update(id, name, address);
-            return Ok(updatedCompany);
+        public async Task<IActionResult> UpdateCompany(CompanyRequestWithId companyRequest)
+        {
+            _companyService.Update(companyRequest);
+            return Ok("Company Updated succesfuly");
         }
 
         [HttpDelete]
         public async Task<IActionResult> DeleteCompany(int id)
         {
-            var deletedCompany = _companyService.Delete(id);
-            return Ok(deletedCompany);
+            _companyService.Delete(id);
+            return Ok("Company Deleted succesfuly");
         }
+
     }
 }

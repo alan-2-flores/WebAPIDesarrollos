@@ -1,5 +1,4 @@
 ﻿using DesarrollosAPI.Contracts;
-using DesarrollosAPI.Dto;
 using DesarrollosAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -22,8 +21,8 @@ namespace DesarrollosAPI.Repository
             RepositoryContext.Set<T>().Add(entity);
         }
 
-        public IQueryable<T> GetById(Expression<Func<T, bool>> expression) {
-            return RepositoryContext.Set<T>().Where(expression).AsNoTracking();
+        public IQueryable<T> GetById(Expression<Func<T, bool>> filter) {
+            return RepositoryContext.Set<T>().Where(filter).AsNoTracking();
         }
 
         public IQueryable<T> GetAll()
@@ -39,6 +38,11 @@ namespace DesarrollosAPI.Repository
         public void Delete(T entity)
         {
             RepositoryContext.Set<T>().Remove(entity);
+        }
+
+        public T GetEntity(Expression<Func<T, bool>> expression)
+        {
+            return RepositoryContext.Set<T>().First(expression);
         }
     }
 }

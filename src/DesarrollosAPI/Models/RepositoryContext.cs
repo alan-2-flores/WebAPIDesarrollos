@@ -11,8 +11,8 @@ namespace DesarrollosAPI.Models
     public class RepositoryContext:DbContext
     {
         public RepositoryContext(DbContextOptions options) : base(options) { }
-        public DbSet<Company> Companies { get; set; }
-        public DbSet<Project> Projects { get; set; }
-        public DbSet<Assignment> Assignments { get; set; }
+        public DbSet<Company> Companies { get; }
+        public DbSet<Project> Projects { get; }
+        public DbSet<Assignment> Assignments { get; }
     }
 }

@@ -1,67 +1,59 @@
-﻿using DesarrollosAPI.Dto;
+﻿using AutoMapper;
+using DesarrollosAPI.Contracts;
+using DesarrollosAPI.DTO;
 using DesarrollosAPI.Models;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace DesarrollosAPI.Services
 {
-    public class CompanyService : ICompanyService
+    //->CONTROLADOR
+    //->DTO
+    //->SERVICE
+    //->REPO
+    public class CompanyService:ICompanyService
     {
-        private readonly RepositoryContext _dbContext;
-        public CompanyService(RepositoryContext dbContext)
+        private readonly IRepositoryWrapper _repository;
+        private readonly IMapper _mapper;
+        public CompanyService(IRepositoryWrapper repository, IMapper mapper)
         {
-            _dbContext = dbContext;
+            _repository = repository;
+            _mapper = mapper;
         }
-        public CompanyResponse Create(string name, string address)
+        public void Create(CompanyRequest companyRequest)
         {
-            Company company = new()
-            {
-                Name = name,
-                Address = address
-            };
-            _dbContext.Companies.Add(company);
-            _dbContext.SaveChanges();
-            return new CompanyResponse(company.Id, company.Name, company.Address);
+            Company company = _mapper.Map<Company>(companyRequest);
+            _repository.Company.Create(company);
+            _repository.Save();
         }
-
-        public Company GetCompanyEntity(int id) {
-            var search = _dbContext.Companies.First(company => company.Id == id);
-            return search;
-        }
-
         public CompanyResponse GetById(int id)
         {
-            var search = _dbContext.Companies.First(company => company.Id == id);
-            return new CompanyResponse(search.Id, search.Name, search.Address);
+            var obtainedCompany = _repository.Company.GetById(company => company.Id == id).First();
+            CompanyResponse companyResponse = _mapper.Map<CompanyResponse>(obtainedCompany);
+            return companyResponse;
         }
         public List<CompanyResponse> GetAll()
         {
-            List<CompanyResponse> response = new();
-            var obtainedCompanies = _dbContext.Companies.ToList();
-            foreach (var company in obtainedCompanies)
-            {
-                response.Add(
-                    new CompanyResponse(company.Id, company.Name, company.Address)
-                    );
+            List<CompanyResponse> companiesResponses = new List<CompanyResponse>();
+            var obtainedCompanies = _repository.Company.GetAll();
+            foreach (var company in obtainedCompanies) {
+                companiesResponses.Add(_mapper.Map<CompanyResponse>(company));
             }
-            return response;
+            return companiesResponses;
         }
-        public CompanyResponse Update(int id, string name, string address)
+
+        public void Update(CompanyRequestWithId companyRequest)
         {
-            var dbCompany = GetCompanyEntity(id);
-            dbCompany.Name = name;
-            dbCompany.Address = address;
-            _dbContext.SaveChanges();
-            var company = GetById(id);
-            return company;
+            Company company = _mapper.Map<Company>(companyRequest);
+            _repository.Company.Update(company);
+            _repository.Save();
         }
-        public CompanyResponse Delete(int id)
+
+        public void Delete(int id)
         {
-            var dbCompany = GetCompanyEntity(id);
-            _dbContext.Companies.Remove(dbCompany);
-            _dbContext.SaveChanges();
-            var company = GetById(id);
-            return company;
+            var obtainedCompany = _repository.Company.GetById(company => company.Id == id).First();
+            _repository.Company.Delete(obtainedCompany);
+            _repository.Save();
         }
     }
 }

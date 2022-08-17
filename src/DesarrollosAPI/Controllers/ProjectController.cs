@@ -1,53 +1,58 @@
-﻿using DesarrollosAPI.Services;
+﻿using DesarrollosAPI.Contracts;
+using DesarrollosAPI.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Threading.Tasks;
 
 namespace DesarrollosAPI.Controllers
 {
-    [ApiController]
     [Route("api/Projects")]
-    public class ProjectController : Controller
+    [ApiController]
+    public class ProjectController : ControllerBase
     {
-        private readonly IProjectService _projectService;
-        public ProjectController(IProjectService projectService)
+        private readonly IRepositoryWrapper _repository;
+        public ProjectController(IRepositoryWrapper repository)
         {
-            _projectService = projectService;
+            _repository = repository;
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateStatus(string name, string description, DateTime startDate, DateTime deadLineDate, DateTime endDate)
+        public async Task<IActionResult> CreateProject(Project project)
         {
-            var createdProject = _projectService.Create(name, description, startDate, deadLineDate, endDate);
-            return Ok(createdProject);
+            _repository.Project.Create(project);
+            _repository.Save();
+            return Ok();
         }
 
         [HttpGet("{id:int}")]
-        public async Task<IActionResult> GetStatus(int id)
+        public async Task<IActionResult> GetProject(int id)
         {
-            var obtainedProject = _projectService.GetById(id);
+            var obtainedProject = _repository.Project.GetById(project => project.Id == id);
             return Ok(obtainedProject);
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetStatuses()
+        public async Task<IActionResult> GetProjets()
         {
-            var obtainedStatuses = _projectService.GetAll();
-            return Ok(obtainedStatuses);
+            var obtainedProjects = _repository.Project.GetAll();
+            return Ok(obtainedProjects);
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateStatus(int id, string name, string description, DateTime startDate, DateTime deadLineDate, DateTime endDate)
+        public async Task<IActionResult> UpdateProject(Project project)
         {
-            var updatedProject = _projectService.Update(id, name, description, startDate, deadLineDate, endDate);
-            return Ok(updatedProject);
+            _repository.Project.Update(project);
+            _repository.Save();
+            return Ok();
         }
 
         [HttpDelete]
-        public async Task<IActionResult> DeleteStatus(int id)
+        public async Task<IActionResult> DeleteProject(int id)
         {
-            var deletedProject = _projectService.Delete(id);
-            return Ok(deletedProject);
+            var project = _repository.Project.GetEntity(project => project.Id == id);
+            _repository.Project.Delete(project);
+            _repository.Save();
+            return Ok();
         }
     }
 }

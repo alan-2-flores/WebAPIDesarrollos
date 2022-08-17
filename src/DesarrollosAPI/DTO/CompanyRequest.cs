@@ -1,13 +1,13 @@
 ﻿namespace DesarrollosAPI.DTO
 {
-    public class CompanyResponse
+    public class CompanyRequest
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
 
-        public CompanyResponse()
+        public CompanyRequest()
         {
+
         }
     }
 }
