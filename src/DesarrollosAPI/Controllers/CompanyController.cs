@@ -6,10 +6,7 @@ using DesarrollosAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-//->CONTROLADOR
-//->DTO
-//->SERVICE
-//->REPO
+
 namespace DesarrollosAPI.Controllers
 {
     [Route("api/Companies")]
@@ -25,21 +22,21 @@ namespace DesarrollosAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateCompany(CompanyRequest companyRequest)
         {
-            _companyService.Create(companyRequest);
+            await _companyService.Create(companyRequest);
             return Ok("Company added succesfuly");
         }
 
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetCompany(int id)
         {
-            var obtainedCompany = _companyService.GetById(id);
+            var obtainedCompany = await _companyService.GetById(id);
             return Ok(obtainedCompany);
         }
 
         [HttpGet]
         public async Task<IActionResult> GetCompanies()
         {
-            var obtainedCompanies = _companyService.GetAll();
+            var obtainedCompanies = await _companyService.GetAll();
             return Ok(obtainedCompanies);
         }
 
@@ -53,7 +50,7 @@ namespace DesarrollosAPI.Controllers
         [HttpDelete]
         public async Task<IActionResult> DeleteCompany(int id)
         {
-            _companyService.Delete(id);
+            await _companyService.Delete(id);
             return Ok("Company Deleted succesfuly");
         }
 

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace DesarrollosAPI.Repository
 {
@@ -21,13 +22,13 @@ namespace DesarrollosAPI.Repository
             RepositoryContext.Set<T>().Add(entity);
         }
 
-        public IQueryable<T> GetById(Expression<Func<T, bool>> filter) {
-            return RepositoryContext.Set<T>().Where(filter).AsNoTracking();
+        public async Task<T> GetById(Expression<Func<T, bool>> filter) {
+            return await RepositoryContext.Set<T>().Where(filter).AsNoTracking().FirstAsync();
         }
 
-        public IQueryable<T> GetAll()
+        public async Task<IList<T>> GetAll()
         {
-            return RepositoryContext.Set<T>().AsNoTracking();
+            return await RepositoryContext.Set<T>().AsNoTracking().ToListAsync();
         }
 
         public void Update(T entity)

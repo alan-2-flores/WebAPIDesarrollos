@@ -1,5 +1,6 @@
 ﻿using DesarrollosAPI.Contracts;
 using DesarrollosAPI.Models;
+using System.Threading.Tasks;
 
 namespace DesarrollosAPI.Repository
 {
@@ -41,9 +42,9 @@ namespace DesarrollosAPI.Repository
                 return _project;
             }
         }
-        public void Save()
+        public async Task Save()
         {
-            _repositoryContext.SaveChanges();
+            await _repositoryContext.SaveChangesAsync();
         }
 
         public RepositoryWrapper(RepositoryContext repositoryContex)

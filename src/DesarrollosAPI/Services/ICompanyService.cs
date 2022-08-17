@@ -1,16 +1,17 @@
 ﻿using DesarrollosAPI.DTO;
 using DesarrollosAPI.Models;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace DesarrollosAPI.Services
 {
     public interface ICompanyService
     {
-        void Create(CompanyRequest companyRequest);
-        CompanyResponse GetById(int id);
-        List<CompanyResponse> GetAll();
-        void Update(CompanyRequestWithId companyRequest);
-        void Delete(int id);
+        Task Create(CompanyRequest companyRequest);
+        Task<CompanyResponse> GetById(int id);
+        Task<List<CompanyResponse>> GetAll();
+        Task Update(CompanyRequestWithId companyRequest);
+        Task Delete(int id);
         //CompanyResponse Delete(int id);
     }
 }
