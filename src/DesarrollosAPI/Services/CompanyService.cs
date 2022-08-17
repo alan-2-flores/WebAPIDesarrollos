@@ -1,4 +1,5 @@
-﻿using DesarrollosAPI.Models;
+﻿using DesarrollosAPI.Dto;
+using DesarrollosAPI.Models;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -6,44 +7,60 @@ namespace DesarrollosAPI.Services
 {
     public class CompanyService : ICompanyService
     {
-        private readonly DevelopmentContext _dbContext;
-        public CompanyService(DevelopmentContext dbContext)
+        private readonly RepositoryContext _dbContext;
+        public CompanyService(RepositoryContext dbContext)
         {
             _dbContext = dbContext;
         }
-        public Company Create(string name, string address)
+        public CompanyResponse Create(string name, string address)
         {
             Company company = new()
             {
-                name = name,
-                address = address
+                Name = name,
+                Address = address
             };
             _dbContext.Companies.Add(company);
             _dbContext.SaveChanges();
-            return company;
+            return new CompanyResponse(company.Id, company.Name, company.Address);
         }
-        public Company GetById(int id)
-        {
+
+        public Company GetCompanyEntity(int id) {
             var search = _dbContext.Companies.First(company => company.Id == id);
             return search;
         }
-        public IEnumerable<Company> GetAll()
+
+        public CompanyResponse GetById(int id)
         {
-            return _dbContext.Companies.ToList();
+            var search = _dbContext.Companies.First(company => company.Id == id);
+            return new CompanyResponse(search.Id, search.Name, search.Address);
         }
-        public Company Update(int id, string name, string address)
+        public List<CompanyResponse> GetAll()
         {
-            var company = GetById(id);
-            company.name = name;
-            company.address = address;
+            List<CompanyResponse> response = new();
+            var obtainedCompanies = _dbContext.Companies.ToList();
+            foreach (var company in obtainedCompanies)
+            {
+                response.Add(
+                    new CompanyResponse(company.Id, company.Name, company.Address)
+                    );
+            }
+            return response;
+        }
+        public CompanyResponse Update(int id, string name, string address)
+        {
+            var dbCompany = GetCompanyEntity(id);
+            dbCompany.Name = name;
+            dbCompany.Address = address;
             _dbContext.SaveChanges();
+            var company = GetById(id);
             return company;
         }
-        public Company Delete(int id)
+        public CompanyResponse Delete(int id)
         {
-            var company = GetById(id);
-            _dbContext.Companies.Remove(company);
+            var dbCompany = GetCompanyEntity(id);
+            _dbContext.Companies.Remove(dbCompany);
             _dbContext.SaveChanges();
+            var company = GetById(id);
             return company;
         }
     }

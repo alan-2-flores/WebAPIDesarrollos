@@ -17,13 +17,13 @@ namespace DesarrollosAPI.Models
         public string Description { get; set; }
 
         [DataType(DataType.Date)]
-        public DateTime startDate { get; set; }
+        public DateTime StartDate { get; set; }
 
         [DataType(DataType.Date)]
-        public DateTime deadLineDate { get; set; }
+        public DateTime DeadLineDate { get; set; }
 
         [DataType(DataType.Date)]
-        public DateTime endDate { get; set; }
+        public DateTime EndDate { get; set; }
 
         //un projecto solo puede tener un status
         //[ForeignKey("Status")]

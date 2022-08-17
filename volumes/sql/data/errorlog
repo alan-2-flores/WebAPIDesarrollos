@@ -83,3 +83,30 @@
 2022-08-16 18:22:30.42 spid52      Setting database option SINGLE_USER to ON for database 'DevelopmentDB'.
 2022-08-16 19:28:29.11 Logon       Error: 18456, Severity: 14, State: 73.
 2022-08-16 19:28:29.11 Logon       Login failed for user 'sa'. Reason: Failed to open the database 'master' configured in the session recovery object while recovering the connection. [CLIENT: 172.18.0.1]
+2022-08-16 19:37:54.26 Logon       Error: 18456, Severity: 14, State: 38.
+2022-08-16 19:37:54.26 Logon       Login failed for user 'sa'. Reason: Failed to open the explicitly specified database 'DevelopmentDB'. [CLIENT: 172.18.0.1]
+2022-08-16 19:38:04.33 Logon       Error: 18456, Severity: 14, State: 38.
+2022-08-16 19:38:04.33 Logon       Login failed for user 'sa'. Reason: Failed to open the explicitly specified database 'DevelopmentDB'. [CLIENT: 172.18.0.1]
+2022-08-16 19:43:40.51 Logon       Error: 18456, Severity: 14, State: 38.
+2022-08-16 19:43:40.51 Logon       Login failed for user 'sa'. Reason: Failed to open the explicitly specified database 'DevelopmentDB'. [CLIENT: 172.18.0.1]
+2022-08-16 19:43:42.03 spid51      [5]. Feature Status: PVS: 0. CTR: 0. ConcurrentPFSUpdate: 1.
+2022-08-16 19:43:42.05 spid51      Starting up database 'DevelopmentDB'.
+2022-08-16 19:43:42.51 spid51      Parallel redo is started for database 'DevelopmentDB' with worker pool size [4].
+2022-08-16 19:43:42.61 spid51      Parallel redo is shutdown for database 'DevelopmentDB' with worker pool size [4].
+2022-08-16 19:43:42.88 spid51      Setting database option READ_COMMITTED_SNAPSHOT to ON for database 'DevelopmentDB'.
+2022-08-16 19:43:43.03 spid51      [5]. Feature Status: PVS: 0. CTR: 0. ConcurrentPFSUpdate: 1.
+2022-08-16 19:43:43.03 spid51      Starting up database 'DevelopmentDB'.
+2022-08-16 19:43:43.34 spid51      Parallel redo is started for database 'DevelopmentDB' with worker pool size [4].
+2022-08-16 19:43:43.43 spid48s     Parallel redo is shutdown for database 'DevelopmentDB' with worker pool size [4].
+2022-08-16 20:02:32.72 spid52      Setting database option SINGLE_USER to ON for database 'DevelopmentDB'.
+2022-08-16 20:03:23.84 Logon       Error: 18456, Severity: 14, State: 38.
+2022-08-16 20:03:23.84 Logon       Login failed for user 'sa'. Reason: Failed to open the explicitly specified database 'DevelopmentDB'. [CLIENT: 172.18.0.1]
+2022-08-16 20:03:25.39 spid52      [5]. Feature Status: PVS: 0. CTR: 0. ConcurrentPFSUpdate: 1.
+2022-08-16 20:03:25.40 spid52      Starting up database 'DevelopmentDB'.
+2022-08-16 20:03:25.87 spid52      Parallel redo is started for database 'DevelopmentDB' with worker pool size [4].
+2022-08-16 20:03:25.93 spid52      Parallel redo is shutdown for database 'DevelopmentDB' with worker pool size [4].
+2022-08-16 20:03:26.13 spid52      Setting database option READ_COMMITTED_SNAPSHOT to ON for database 'DevelopmentDB'.
+2022-08-16 20:03:26.18 spid52      [5]. Feature Status: PVS: 0. CTR: 0. ConcurrentPFSUpdate: 1.
+2022-08-16 20:03:26.18 spid52      Starting up database 'DevelopmentDB'.
+2022-08-16 20:03:26.42 spid52      Parallel redo is started for database 'DevelopmentDB' with worker pool size [4].
+2022-08-16 20:03:26.52 spid20s     Parallel redo is shutdown for database 'DevelopmentDB' with worker pool size [4].

@@ -7,8 +7,8 @@ namespace DesarrollosAPI.Services
 {
     public class ProjectService:IProjectService
     {
-        private readonly DevelopmentContext _dbContext;
-        public ProjectService(DevelopmentContext dbContext)
+        private readonly RepositoryContext _dbContext;
+        public ProjectService(RepositoryContext dbContext)
         {
             _dbContext = dbContext;
         }
@@ -18,9 +18,9 @@ namespace DesarrollosAPI.Services
             {
                 Name = name,
                 Description = description,
-                startDate = startDate.Date,
-                deadLineDate = deadLineDate.Date,
-                endDate = endDate.Date
+                StartDate = startDate.Date,
+                DeadLineDate = deadLineDate.Date,
+                EndDate = endDate.Date
             };
             _dbContext.Projects.Add(project);
             _dbContext.SaveChanges();
@@ -40,9 +40,9 @@ namespace DesarrollosAPI.Services
             var project = GetById(id);
             project.Name = name;
             project.Description = description;
-            project.startDate = startDate.Date;
-            project.deadLineDate = deadLineDate.Date;
-            project.endDate = endDate.Date;
+            project.StartDate = startDate.Date;
+            project.DeadLineDate = deadLineDate.Date;
+            project.EndDate = endDate.Date;
             _dbContext.SaveChanges();
             return project;
         }

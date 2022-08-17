@@ -7,9 +7,9 @@ namespace DesarrollosAPI.Models
     {
         [Required]
         public int Id { get; set; }
-        public string name { get; set; }
-        public string address { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
         //Una compania puede tener varios proyectos
-        public ICollection<Project> Fk_Projects { get; set; }
+        //public ICollection<Project> Fk_Projects { get; set; }
     }
 }

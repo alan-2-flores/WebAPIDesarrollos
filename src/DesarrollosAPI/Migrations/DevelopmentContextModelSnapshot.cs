@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DesarrollosAPI.Migrations
 {
-    [DbContext(typeof(DevelopmentContext))]
+    [DbContext(typeof(RepositoryContext))]
     partial class DevelopmentContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -19,6 +19,28 @@ namespace DesarrollosAPI.Migrations
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("DesarrollosAPI.Models.Assignment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CompanyId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProjectId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CompanyId");
+
+                    b.HasIndex("ProjectId");
+
+                    b.ToTable("Assignments");
+                });
+
             modelBuilder.Entity("DesarrollosAPI.Models.Company", b =>
                 {
                     b.Property<int>("Id")
@@ -26,10 +48,10 @@ namespace DesarrollosAPI.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("address")
+                    b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("name")
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -44,72 +66,45 @@ namespace DesarrollosAPI.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CompanyId")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("DeadLineDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Name")
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int?>("StatusId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("deadLineDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("endDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("startDate")
+                    b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CompanyId");
-
-                    b.HasIndex("StatusId");
 
                     b.ToTable("Projects");
                 });
 
-            modelBuilder.Entity("DesarrollosAPI.Models.Status", b =>
+            modelBuilder.Entity("DesarrollosAPI.Models.Assignment", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.HasOne("DesarrollosAPI.Models.Company", "Company")
+                        .WithMany()
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                    b.HasOne("DesarrollosAPI.Models.Project", "Project")
+                        .WithMany()
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasKey("Id");
+                    b.Navigation("Company");
 
-                    b.ToTable("Statuses");
-                });
-
-            modelBuilder.Entity("DesarrollosAPI.Models.Project", b =>
-                {
-                    b.HasOne("DesarrollosAPI.Models.Company", null)
-                        .WithMany("Fk_Projects")
-                        .HasForeignKey("CompanyId");
-
-                    b.HasOne("DesarrollosAPI.Models.Status", null)
-                        .WithMany("FK_Projects")
-                        .HasForeignKey("StatusId");
-                });
-
-            modelBuilder.Entity("DesarrollosAPI.Models.Company", b =>
-                {
-                    b.Navigation("Fk_Projects");
-                });
-
-            modelBuilder.Entity("DesarrollosAPI.Models.Status", b =>
-                {
-                    b.Navigation("FK_Projects");
+                    b.Navigation("Project");
                 });
 #pragma warning restore 612, 618
         }
