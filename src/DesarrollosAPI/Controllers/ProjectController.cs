@@ -1,5 +1,8 @@
-﻿using DesarrollosAPI.Contracts;
+﻿using AutoMapper;
+using DesarrollosAPI.Contracts;
+using DesarrollosAPI.DTO;
 using DesarrollosAPI.Models;
+using DesarrollosAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -10,49 +13,45 @@ namespace DesarrollosAPI.Controllers
     [ApiController]
     public class ProjectController : ControllerBase
     {
-        private readonly IRepositoryWrapper _repository;
-        public ProjectController(IRepositoryWrapper repository)
+        private readonly IProjectService _projectService;
+        public ProjectController(IProjectService service)
         {
-            _repository = repository;
+            _projectService = service;
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateProject(Project project)
+        public async Task<IActionResult> CreateCompany(ProjectRequest projectRequest)
         {
-            _repository.Project.Create(project);
-            _repository.Save();
-            return Ok();
+            await _projectService.Create(projectRequest);
+            return Ok("Project added succesfuly");
         }
 
         [HttpGet("{id:int}")]
-        public async Task<IActionResult> GetProject(int id)
+        public async Task<IActionResult> GetCompany(int id)
         {
-            var obtainedProject = _repository.Project.GetById(project => project.Id == id);
+            var obtainedProject = await _projectService.GetById(id);
             return Ok(obtainedProject);
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetProjets()
+        public async Task<IActionResult> GetCompanies()
         {
-            var obtainedProjects = _repository.Project.GetAll();
+            var obtainedProjects = await _projectService.GetAll();
             return Ok(obtainedProjects);
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateProject(Project project)
+        public async Task<IActionResult> UpdateCompany(ProjectRequestWithId projectRequest)
         {
-            _repository.Project.Update(project);
-            _repository.Save();
-            return Ok();
+            await _projectService.Update(projectRequest);
+            return Ok("Project Updated succesfuly");
         }
 
         [HttpDelete]
-        public async Task<IActionResult> DeleteProject(int id)
+        public async Task<IActionResult> DeleteCompany(int id)
         {
-            var project = _repository.Project.GetEntity(project => project.Id == id);
-            _repository.Project.Delete(project);
-            _repository.Save();
-            return Ok();
+            await _projectService.Delete(id);
+            return Ok("Project Deleted succesfuly");
         }
     }
 }

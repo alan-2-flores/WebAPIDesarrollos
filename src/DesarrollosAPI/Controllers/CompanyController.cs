@@ -43,7 +43,7 @@ namespace DesarrollosAPI.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateCompany(CompanyRequestWithId companyRequest)
         {
-            _companyService.Update(companyRequest);
+            await _companyService.Update(companyRequest);
             return Ok("Company Updated succesfuly");
         }
 

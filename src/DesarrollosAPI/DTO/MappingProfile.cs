@@ -10,6 +10,10 @@ namespace DesarrollosAPI.DTO
             CreateMap<CompanyRequest, Company>();
             CreateMap<Company, CompanyResponse>();
             CreateMap<CompanyRequestWithId, Company>();
+
+            CreateMap<ProjectRequest, Project>();
+            CreateMap<Project, ProjectResponse>();
+            CreateMap<ProjectRequestWithId, Project>();
         }
     }
 }

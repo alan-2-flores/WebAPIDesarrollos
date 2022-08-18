@@ -23,7 +23,7 @@ namespace DesarrollosAPI.Models
         public DateTime DeadLineDate { get; set; }
 
         [DataType(DataType.Date)]
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
 
         //un projecto solo puede tener un status
         //[ForeignKey("Status")]

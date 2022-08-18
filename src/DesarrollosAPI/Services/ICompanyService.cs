@@ -12,6 +12,5 @@ namespace DesarrollosAPI.Services
         Task<List<CompanyResponse>> GetAll();
         Task Update(CompanyRequestWithId companyRequest);
         Task Delete(int id);
-        //CompanyResponse Delete(int id);
     }
 }

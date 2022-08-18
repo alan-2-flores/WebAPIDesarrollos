@@ -3,7 +3,6 @@ using DesarrollosAPI.Contracts;
 using DesarrollosAPI.DTO;
 using DesarrollosAPI.Models;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace DesarrollosAPI.Services
