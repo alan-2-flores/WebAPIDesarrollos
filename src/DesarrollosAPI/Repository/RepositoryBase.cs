@@ -27,7 +27,7 @@ namespace DesarrollosAPI.Repository
             return await RepositoryContext.Set<T>().Where(filter).AsNoTracking().FirstAsync();
         }
 
-        public async Task<IList<T>> GetAll()
+        virtual public async Task<IList<T>> GetAll()
         {
             return await RepositoryContext.Set<T>().AsNoTracking().ToListAsync();
         }

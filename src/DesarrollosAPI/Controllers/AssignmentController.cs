@@ -30,10 +30,10 @@ namespace DesarrollosAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetCompanies()
+        public async Task<IActionResult> GetAssignments()
         {
-            var obtainedCompanies = await _assignmentService.GetAll();
-            return Ok(obtainedCompanies);
+            var obtainedAssignments = await _assignmentService.GetAll();
+            return Ok(obtainedAssignments);
         }
 
         [HttpPut]
