@@ -11,7 +11,7 @@ namespace DesarrollosAPI.Services
     //->DTO
     //->SERVICE
     //->REPO
-    public class CompanyService:ICompanyService
+    public class CompanyService : ICompanyService
     {
         private readonly IRepositoryWrapper _repository;
         private readonly IMapper _mapper;
@@ -36,7 +36,8 @@ namespace DesarrollosAPI.Services
         {
             List<CompanyResponse> companiesResponses = new();
             var obtainedCompanies = await _repository.Company.GetAll();
-            foreach (var company in obtainedCompanies) {
+            foreach (var company in obtainedCompanies)
+            {
                 companiesResponses.Add(_mapper.Map<CompanyResponse>(company));
             }
             return companiesResponses;

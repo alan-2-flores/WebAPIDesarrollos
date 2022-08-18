@@ -2,7 +2,7 @@
 
 namespace DesarrollosAPI.Contracts
 {
-    public interface ICompanyRepository:IRepositoryBase<Company>
+    public interface ICompanyRepository : IRepositoryBase<Company>
     {
     }
 }

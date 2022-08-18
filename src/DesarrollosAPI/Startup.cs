@@ -1,16 +1,16 @@
+using AutoMapper;
+using DesarrollosAPI.Contracts;
+using DesarrollosAPI.DTO;
 using DesarrollosAPI.Models;
+using DesarrollosAPI.Repository;
+using DesarrollosAPI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using Microsoft.EntityFrameworkCore;
-using DesarrollosAPI.Contracts;
-using DesarrollosAPI.Repository;
-using AutoMapper;
-using DesarrollosAPI.DTO;
-using DesarrollosAPI.Services;
 
 namespace DesarrollosAPI
 {

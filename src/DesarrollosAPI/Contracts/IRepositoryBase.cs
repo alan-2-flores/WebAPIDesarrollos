@@ -8,7 +8,6 @@ namespace DesarrollosAPI.Contracts
     public interface IRepositoryBase<T>
     {
         void Create(T entity);
-        T GetEntity(Expression<Func<T, bool>> filter);
         Task<T> GetById(Expression<Func<T, bool>> filter);
         Task<IList<T>> GetAll();
         void Update(T entity);

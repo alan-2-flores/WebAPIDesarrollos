@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DesarrollosAPI.Services
 {
-    public class ProjectService:IProjectService
+    public class ProjectService : IProjectService
     {
         private readonly IRepositoryWrapper _repository;
         private readonly IMapper _mapper;

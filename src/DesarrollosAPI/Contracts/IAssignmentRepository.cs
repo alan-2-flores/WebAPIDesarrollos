@@ -2,7 +2,7 @@
 
 namespace DesarrollosAPI.Contracts
 {
-    public interface IAssignmentRepository:IRepositoryBase<Assignment>
+    public interface IAssignmentRepository : IRepositoryBase<Assignment>
     {
     }
 }

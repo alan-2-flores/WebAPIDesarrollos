@@ -2,7 +2,7 @@
 
 namespace DesarrollosAPI.Contracts
 {
-    public interface IProjectRepository:IRepositoryBase<Project>
+    public interface IProjectRepository : IRepositoryBase<Project>
     {
     }
 }

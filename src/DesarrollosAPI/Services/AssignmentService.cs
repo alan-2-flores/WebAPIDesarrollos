@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DesarrollosAPI.Services
 {
-    public class AssignmentService:IAssignmentService
+    public class AssignmentService : IAssignmentService
     {
         private readonly IRepositoryWrapper _repository;
         private readonly IMapper _mapper;

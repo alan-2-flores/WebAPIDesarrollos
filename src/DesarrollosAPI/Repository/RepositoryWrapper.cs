@@ -4,13 +4,14 @@ using System.Threading.Tasks;
 
 namespace DesarrollosAPI.Repository
 {
-    public class RepositoryWrapper:IRepositoryWrapper
+    public class RepositoryWrapper : IRepositoryWrapper
     {
         private readonly RepositoryContext _repositoryContext;
         private IAssignmentRepository _assignment;
         private ICompanyRepository _company;
         private IProjectRepository _project;
-        public IAssignmentRepository Assignment {
+        public IAssignmentRepository Assignment
+        {
             get
             {
                 if (_assignment == null)
