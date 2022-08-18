@@ -78,3 +78,15 @@
 2022-08-18 14:09:49.61 spid57      Using 'xplog70.dll' version '2019.150.4236' to execute extended stored procedure 'xp_msver'. This is an informational message only; no user action is required.
 2022-08-18 14:53:14.55 spid60      Attempting to load library 'xpstar.dll' into memory. This is an informational message only. No user action is required.
 2022-08-18 14:53:14.63 spid60      Using 'xpstar.dll' version '2019.150.4236' to execute extended stored procedure 'xp_instance_regread'. This is an informational message only; no user action is required.
+2022-08-18 16:07:02.91 spid53      Setting database option SINGLE_USER to ON for database 'DevelopmentDB'.
+2022-08-18 16:08:24.90 Logon       Error: 18456, Severity: 14, State: 38.
+2022-08-18 16:08:24.90 Logon       Login failed for user 'sa'. Reason: Failed to open the explicitly specified database 'DevelopmentDB'. [CLIENT: 172.18.0.1]
+2022-08-18 16:08:27.05 spid53      [5]. Feature Status: PVS: 0. CTR: 0. ConcurrentPFSUpdate: 1.
+2022-08-18 16:08:27.06 spid53      Starting up database 'DevelopmentDB'.
+2022-08-18 16:08:27.74 spid53      Parallel redo is started for database 'DevelopmentDB' with worker pool size [4].
+2022-08-18 16:08:27.81 spid53      Parallel redo is shutdown for database 'DevelopmentDB' with worker pool size [4].
+2022-08-18 16:08:27.97 spid53      Setting database option READ_COMMITTED_SNAPSHOT to ON for database 'DevelopmentDB'.
+2022-08-18 16:08:28.04 spid53      [5]. Feature Status: PVS: 0. CTR: 0. ConcurrentPFSUpdate: 1.
+2022-08-18 16:08:28.04 spid53      Starting up database 'DevelopmentDB'.
+2022-08-18 16:08:28.56 spid53      Parallel redo is started for database 'DevelopmentDB' with worker pool size [4].
+2022-08-18 16:08:28.65 spid52s     Parallel redo is shutdown for database 'DevelopmentDB' with worker pool size [4].

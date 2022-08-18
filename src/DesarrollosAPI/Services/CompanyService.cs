@@ -34,7 +34,7 @@ namespace DesarrollosAPI.Services
         }
         public async Task<List<CompanyResponse>> GetAll()
         {
-            List<CompanyResponse> companiesResponses = new List<CompanyResponse>();
+            List<CompanyResponse> companiesResponses = new();
             var obtainedCompanies = await _repository.Company.GetAll();
             foreach (var company in obtainedCompanies) {
                 companiesResponses.Add(_mapper.Map<CompanyResponse>(company));

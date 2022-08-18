@@ -30,7 +30,7 @@ namespace DesarrollosAPI.Services
         }
         public async Task<List<ProjectResponse>> GetAll()
         {
-            List<ProjectResponse> projectsResponses = new List<ProjectResponse>();
+            List<ProjectResponse> projectsResponses = new();
             var obtainedProjects = await _repository.Project.GetAll();
             foreach (var project in obtainedProjects)
             {

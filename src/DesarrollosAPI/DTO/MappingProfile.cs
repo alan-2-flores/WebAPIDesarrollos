@@ -14,6 +14,10 @@ namespace DesarrollosAPI.DTO
             CreateMap<ProjectRequest, Project>();
             CreateMap<Project, ProjectResponse>();
             CreateMap<ProjectRequestWithId, Project>();
+
+            CreateMap<AssignmentRequest, Assignment>();
+            CreateMap<Assignment, AssignmentResponse>();
+            CreateMap<AssignmentRequestWithId, Assignment>();
         }
     }
 }

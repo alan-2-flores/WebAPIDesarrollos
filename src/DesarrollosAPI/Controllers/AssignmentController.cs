@@ -1,6 +1,5 @@
-﻿using DesarrollosAPI.Contracts;
-using DesarrollosAPI.Models;
-using Microsoft.AspNetCore.Http;
+﻿using DesarrollosAPI.DTO;
+using DesarrollosAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -10,49 +9,45 @@ namespace DesarrollosAPI.Controllers
     [ApiController]
     public class AssignmentController : ControllerBase
     {
-        private readonly IRepositoryWrapper _repository;
-        public AssignmentController(IRepositoryWrapper repository)
+        private readonly IAssignmentService _assignmentService;
+        public AssignmentController(IAssignmentService service)
         {
-            _repository = repository;
+            _assignmentService = service;
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateAssignment(Assignment assignment)
+        public async Task<IActionResult> CreateAssignment(AssignmentRequest assignmentRequest)
         {
-            _repository.Assignment.Create(assignment);
-            _repository.Save();
-            return Ok();
+            await _assignmentService.Create(assignmentRequest);
+            return Ok("Assignment added succesfuly");
         }
 
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetAssignment(int id)
         {
-            var obtainedAssignment = _repository.Assignment.GetById(assignment => assignment.Id==id);
+            var obtainedAssignment = await _assignmentService.GetById(id);
             return Ok(obtainedAssignment);
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAssignments()
+        public async Task<IActionResult> GetCompanies()
         {
-            var obtainedAssignments = _repository.Assignment.GetAll();
-            return Ok(obtainedAssignments);
+            var obtainedCompanies = await _assignmentService.GetAll();
+            return Ok(obtainedCompanies);
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateAssignment(Assignment assignment)
+        public async Task<IActionResult> UpdateAssignment(AssignmentRequestWithId assignmentRequest)
         {
-            _repository.Assignment.Update(assignment);
-            _repository.Save();
-            return Ok();
+            await _assignmentService.Update(assignmentRequest);
+            return Ok("Assignment Updated succesfuly");
         }
 
         [HttpDelete]
         public async Task<IActionResult> DeleteAssignment(int id)
         {
-            var assignment = _repository.Assignment.GetEntity(assignment => assignment.Id == id);
-            _repository.Assignment.Delete(assignment);
-            _repository.Save();
-            return Ok();
+            await _assignmentService.Delete(id);
+            return Ok("Assignment Deleted succesfuly");
         }
     }
 }

@@ -30,6 +30,7 @@ namespace DesarrollosAPI
             services.AddDbContext<RepositoryContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SQLServer")));
             services.AddScoped<ICompanyService, CompanyService>();
             services.AddScoped<IProjectService, ProjectService>();
+            services.AddScoped<IAssignmentService, AssignmentService>();
             services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
             services.AddSwaggerGen(c =>
             {

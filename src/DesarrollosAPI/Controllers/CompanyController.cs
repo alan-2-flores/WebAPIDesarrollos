@@ -1,9 +1,5 @@
-﻿using AutoMapper;
-using DesarrollosAPI.Contracts;
-using DesarrollosAPI.DTO;
-using DesarrollosAPI.Models;
+﻿using DesarrollosAPI.DTO;
 using DesarrollosAPI.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 

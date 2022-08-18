@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DesarrollosAPI.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20220818145716_actualizarBdFechaNullable")]
-    partial class actualizarBdFechaNullable
+    [Migration("20220818160808_realease1")]
+    partial class realease1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

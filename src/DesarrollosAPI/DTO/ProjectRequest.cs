@@ -15,7 +15,7 @@ namespace DesarrollosAPI.DTO
         public DateTime DeadLineDate { get; set; }
 
         [DataType(DataType.Date)]
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
         public ProjectRequest()
         {
         }
