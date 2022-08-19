@@ -17,12 +17,12 @@ namespace DesarrollosAPI.Persistence
 
         override public async Task<Assignment> GetById(Expression<Func<Assignment, bool>> filter)
         {
-            return await RepositoryContext.Set<Assignment>().Include(project => project.Project).Include(company => company.Company).Where(filter).AsNoTracking().FirstAsync();
+            return await RepositoryContext.Set<Assignment>().Include(project => project.Proposal).Include(company => company.Company).Where(filter).AsNoTracking().FirstAsync();
         }
 
         override public async Task<IList<Assignment>> GetAll()
         {
-            return await RepositoryContext.Set<Assignment>().Include(project => project.Project).Include(company => company.Company).AsNoTracking().ToListAsync();
+            return await RepositoryContext.Set<Assignment>().Include(project => project.Proposal).Include(company => company.Company).AsNoTracking().ToListAsync();
         }
 
         //override public async Task<IList<Assignment>> GetAll()

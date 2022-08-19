@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 //proposals
 namespace DesarrollosAPI.Entities
 {
@@ -15,14 +14,14 @@ namespace DesarrollosAPI.Entities
         [StringLength(100)]
         public string Description { get; set; }
 
-        [DataType(DataType.Date)]
-        public DateTime StartDate { get; set; }
+        //[DataType(DataType.Date)]
+        //public DateTime StartDate { get; set; }
 
-        [DataType(DataType.Date)]
-        public DateTime DeadLineDate { get; set; }
+        //[DataType(DataType.Date)]
+        //public DateTime DeadLineDate { get; set; }
 
-        [DataType(DataType.Date)]
-        public DateTime? EndDate { get; set; }
+        //[DataType(DataType.Date)]
+        //public DateTime? EndDate { get; set; }
 
         //un projecto solo puede tener un status
         //[ForeignKey("Status")]

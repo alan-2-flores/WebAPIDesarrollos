@@ -28,7 +28,8 @@ namespace DesarrollosAPI
         {
             services.AddControllers();
 
-            services.AddDbContext<RepositoryContext>(options => {
+            services.AddDbContext<RepositoryContext>(options =>
+            {
                 options.UseSqlServer(Configuration.GetConnectionString("SQLServer"));
                 options.UseSqlServer(origen => origen.MigrationsAssembly("DesarrollosAPI"));
             });

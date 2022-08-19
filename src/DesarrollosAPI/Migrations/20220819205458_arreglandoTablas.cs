@@ -1,9 +1,9 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
+using System;
 
 namespace DesarrollosAPI.Migrations
 {
-    public partial class migracionDeCero : Migration
+    public partial class arreglandoTablas : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -22,20 +22,17 @@ namespace DesarrollosAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Projects",
+                name: "Proposals",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
-                    StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DeadLineDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    Description = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Projects", x => x.Id);
+                    table.PrimaryKey("PK_Proposals", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -44,8 +41,11 @@ namespace DesarrollosAPI.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DeadLineDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CompanyId = table.Column<int>(type: "int", nullable: false),
-                    ProjectId = table.Column<int>(type: "int", nullable: false)
+                    ProposalId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -57,9 +57,9 @@ namespace DesarrollosAPI.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Assignments_Projects_ProjectId",
-                        column: x => x.ProjectId,
-                        principalTable: "Projects",
+                        name: "FK_Assignments_Proposals_ProposalId",
+                        column: x => x.ProposalId,
+                        principalTable: "Proposals",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -70,9 +70,9 @@ namespace DesarrollosAPI.Migrations
                 column: "CompanyId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Assignments_ProjectId",
+                name: "IX_Assignments_ProposalId",
                 table: "Assignments",
-                column: "ProjectId");
+                column: "ProposalId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -84,7 +84,7 @@ namespace DesarrollosAPI.Migrations
                 name: "Companies");
 
             migrationBuilder.DropTable(
-                name: "Projects");
+                name: "Proposals");
         }
     }
 }

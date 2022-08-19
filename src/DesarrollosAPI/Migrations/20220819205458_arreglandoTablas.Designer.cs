@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DesarrollosAPI.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20220819193728_migracionDeCero")]
-    partial class migracionDeCero
+    [Migration("20220819205458_arreglandoTablas")]
+    partial class arreglandoTablas
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,14 +31,23 @@ namespace DesarrollosAPI.Migrations
                     b.Property<int>("CompanyId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProjectId")
+                    b.Property<DateTime>("DeadLineDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ProposalId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CompanyId");
 
-                    b.HasIndex("ProjectId");
+                    b.HasIndex("ProposalId");
 
                     b.ToTable("Assignments");
                 });
@@ -61,33 +70,24 @@ namespace DesarrollosAPI.Migrations
                     b.ToTable("Companies");
                 });
 
-            modelBuilder.Entity("DesarrollosAPI.Entities.Project", b =>
+            modelBuilder.Entity("DesarrollosAPI.Entities.Proposal", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("DeadLineDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Description")
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
-
-                    b.Property<DateTime?>("EndDate")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
-
                     b.HasKey("Id");
 
-                    b.ToTable("Projects");
+                    b.ToTable("Proposals");
                 });
 
             modelBuilder.Entity("DesarrollosAPI.Entities.Assignment", b =>
@@ -98,15 +98,15 @@ namespace DesarrollosAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DesarrollosAPI.Entities.Project", "Project")
+                    b.HasOne("DesarrollosAPI.Entities.Proposal", "Proposal")
                         .WithMany()
-                        .HasForeignKey("ProjectId")
+                        .HasForeignKey("ProposalId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Company");
 
-                    b.Navigation("Project");
+                    b.Navigation("Proposal");
                 });
 #pragma warning restore 612, 618
         }

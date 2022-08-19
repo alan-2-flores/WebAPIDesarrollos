@@ -95,3 +95,39 @@
 2022-08-19 19:38:13.67 spid51      Starting up database 'DevelopmentDB'.
 2022-08-19 19:38:14.02 spid51      Parallel redo is started for database 'DevelopmentDB' with worker pool size [4].
 2022-08-19 19:38:14.08 spid31s     Parallel redo is shutdown for database 'DevelopmentDB' with worker pool size [4].
+2022-08-19 20:38:36.73 spid53      Setting database option SINGLE_USER to ON for database 'DevelopmentDB'.
+2022-08-19 20:39:11.89 Logon       Error: 18456, Severity: 14, State: 38.
+2022-08-19 20:39:11.89 Logon       Login failed for user 'sa'. Reason: Failed to open the explicitly specified database 'DevelopmentDB'. [CLIENT: 172.18.0.1]
+2022-08-19 20:39:13.20 spid51      [5]. Feature Status: PVS: 0. CTR: 0. ConcurrentPFSUpdate: 1.
+2022-08-19 20:39:13.21 spid51      Starting up database 'DevelopmentDB'.
+2022-08-19 20:39:13.69 spid51      Parallel redo is started for database 'DevelopmentDB' with worker pool size [4].
+2022-08-19 20:39:13.77 spid51      Parallel redo is shutdown for database 'DevelopmentDB' with worker pool size [4].
+2022-08-19 20:39:13.95 spid51      Setting database option READ_COMMITTED_SNAPSHOT to ON for database 'DevelopmentDB'.
+2022-08-19 20:39:14.08 spid51      [5]. Feature Status: PVS: 0. CTR: 0. ConcurrentPFSUpdate: 1.
+2022-08-19 20:39:14.09 spid51      Starting up database 'DevelopmentDB'.
+2022-08-19 20:39:14.41 spid51      Parallel redo is started for database 'DevelopmentDB' with worker pool size [4].
+2022-08-19 20:39:14.48 spid27s     Parallel redo is shutdown for database 'DevelopmentDB' with worker pool size [4].
+2022-08-19 20:46:50.05 spid53      Setting database option SINGLE_USER to ON for database 'DevelopmentDB'.
+2022-08-19 20:47:29.75 Logon       Error: 18456, Severity: 14, State: 38.
+2022-08-19 20:47:29.75 Logon       Login failed for user 'sa'. Reason: Failed to open the explicitly specified database 'DevelopmentDB'. [CLIENT: 172.18.0.1]
+2022-08-19 20:47:31.31 spid53      [5]. Feature Status: PVS: 0. CTR: 0. ConcurrentPFSUpdate: 1.
+2022-08-19 20:47:31.32 spid53      Starting up database 'DevelopmentDB'.
+2022-08-19 20:47:31.70 spid53      Parallel redo is started for database 'DevelopmentDB' with worker pool size [4].
+2022-08-19 20:47:31.75 spid53      Parallel redo is shutdown for database 'DevelopmentDB' with worker pool size [4].
+2022-08-19 20:47:31.85 spid53      Setting database option READ_COMMITTED_SNAPSHOT to ON for database 'DevelopmentDB'.
+2022-08-19 20:47:31.91 spid53      [5]. Feature Status: PVS: 0. CTR: 0. ConcurrentPFSUpdate: 1.
+2022-08-19 20:47:31.91 spid53      Starting up database 'DevelopmentDB'.
+2022-08-19 20:47:32.43 spid53      Parallel redo is started for database 'DevelopmentDB' with worker pool size [4].
+2022-08-19 20:47:32.53 spid17s     Parallel redo is shutdown for database 'DevelopmentDB' with worker pool size [4].
+2022-08-19 20:54:21.37 spid52      Setting database option SINGLE_USER to ON for database 'DevelopmentDB'.
+2022-08-19 20:55:07.83 Logon       Error: 18456, Severity: 14, State: 38.
+2022-08-19 20:55:07.83 Logon       Login failed for user 'sa'. Reason: Failed to open the explicitly specified database 'DevelopmentDB'. [CLIENT: 172.18.0.1]
+2022-08-19 20:55:09.52 spid52      [5]. Feature Status: PVS: 0. CTR: 0. ConcurrentPFSUpdate: 1.
+2022-08-19 20:55:09.53 spid52      Starting up database 'DevelopmentDB'.
+2022-08-19 20:55:10.07 spid52      Parallel redo is started for database 'DevelopmentDB' with worker pool size [4].
+2022-08-19 20:55:10.15 spid52      Parallel redo is shutdown for database 'DevelopmentDB' with worker pool size [4].
+2022-08-19 20:55:10.32 spid52      Setting database option READ_COMMITTED_SNAPSHOT to ON for database 'DevelopmentDB'.
+2022-08-19 20:55:10.37 spid52      [5]. Feature Status: PVS: 0. CTR: 0. ConcurrentPFSUpdate: 1.
+2022-08-19 20:55:10.37 spid52      Starting up database 'DevelopmentDB'.
+2022-08-19 20:55:10.74 spid52      Parallel redo is started for database 'DevelopmentDB' with worker pool size [4].
+2022-08-19 20:55:10.82 spid22s     Parallel redo is shutdown for database 'DevelopmentDB' with worker pool size [4].
