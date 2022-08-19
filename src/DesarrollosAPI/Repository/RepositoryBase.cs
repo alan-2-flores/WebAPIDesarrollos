@@ -22,7 +22,7 @@ namespace DesarrollosAPI.Repository
             RepositoryContext.Set<T>().Add(entity);
         }
 
-        public async Task<T> GetById(Expression<Func<T, bool>> filter)
+        virtual public async Task<T> GetById(Expression<Func<T, bool>> filter)
         {
             return await RepositoryContext.Set<T>().Where(filter).AsNoTracking().FirstAsync();
         }
