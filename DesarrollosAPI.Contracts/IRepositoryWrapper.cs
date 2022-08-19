@@ -6,7 +6,7 @@ namespace DesarrollosAPI.Contracts
     {
         IAssignmentRepository Assignment { get; }
         ICompanyRepository Company { get; }
-        IProjectRepository Project { get; }
+        IProposalRepository Proposal { get; }
         Task Save();
     }
 }

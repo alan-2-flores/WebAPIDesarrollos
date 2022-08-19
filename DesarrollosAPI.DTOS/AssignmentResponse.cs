@@ -7,7 +7,7 @@
         public int CompanyId { get; set; }
         public int ProjectId { get; set; }
         public CompanyResponse Company { get; set; }
-        public ProjectResponse Project { get; set; }
+        public ProposalResponse Project { get; set; }
         public AssignmentResponse()
         {
 

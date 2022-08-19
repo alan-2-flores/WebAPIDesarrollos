@@ -3,9 +3,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DesarrollosAPI.DTOS
 {
-    public class ProjectRequestWithId
+    public class ProposalRequest
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
 
@@ -16,11 +15,9 @@ namespace DesarrollosAPI.DTOS
         public DateTime DeadLineDate { get; set; }
 
         [DataType(DataType.Date)]
-        public DateTime EndDate { get; set; }
-
-        public ProjectRequestWithId()
+        public DateTime? EndDate { get; set; }
+        public ProposalRequest()
         {
-
         }
     }
 }

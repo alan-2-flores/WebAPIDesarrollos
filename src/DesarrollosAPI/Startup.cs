@@ -34,7 +34,7 @@ namespace DesarrollosAPI
             });
 
             services.AddScoped<ICompanyService, CompanyService>();
-            services.AddScoped<IProjectService, ProjectService>();
+            services.AddScoped<IProposalService, ProposalService>();
             services.AddScoped<IAssignmentService, AssignmentService>();
             services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
             services.AddSwaggerGen(c =>

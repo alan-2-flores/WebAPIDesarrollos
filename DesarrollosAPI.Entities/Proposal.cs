@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace DesarrollosAPI.Entities
 {
     //AUTOMAPER
-    public class Project
+    public class Proposal
     {
         [Required]
         public int Id { get; set; }

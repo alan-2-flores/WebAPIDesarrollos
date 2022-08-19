@@ -7,16 +7,16 @@ namespace DesarrollosAPI.API
 {
     [Route("api/Projects")]
     [ApiController]
-    public class ProjectController : ControllerBase
+    public class ProposalController : ControllerBase
     {
-        private readonly IProjectService _projectService;
-        public ProjectController(IProjectService service)
+        private readonly IProposalService _projectService;
+        public ProposalController(IProposalService service)
         {
             _projectService = service;
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateCompany(ProjectRequest projectRequest)
+        public async Task<IActionResult> CreateCompany(ProposalRequest projectRequest)
         {
             await _projectService.Create(projectRequest);
             return Ok("Project added succesfuly");
@@ -37,7 +37,7 @@ namespace DesarrollosAPI.API
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateCompany(ProjectRequestWithId projectRequest)
+        public async Task<IActionResult> UpdateCompany(ProposalRequestWithId projectRequest)
         {
             await _projectService.Update(projectRequest);
             return Ok("Project Updated succesfuly");

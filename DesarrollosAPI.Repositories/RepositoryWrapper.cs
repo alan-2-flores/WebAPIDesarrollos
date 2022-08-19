@@ -9,7 +9,7 @@ namespace DesarrollosAPI.Persistence
         private readonly RepositoryContext _repositoryContext;
         private IAssignmentRepository _assignment;
         private ICompanyRepository _company;
-        private IProjectRepository _project;
+        private IProposalRepository _proposal;
         public IAssignmentRepository Assignment
         {
             get
@@ -32,15 +32,15 @@ namespace DesarrollosAPI.Persistence
                 return _company;
             }
         }
-        public IProjectRepository Project
+        public IProposalRepository Proposal
         {
             get
             {
-                if (_project == null)
+                if (_proposal == null)
                 {
-                    _project = new ProjectRepository(_repositoryContext);
+                    _proposal = new ProposalRepository(_repositoryContext);
                 }
-                return _project;
+                return _proposal;
             }
         }
         public async Task Save()

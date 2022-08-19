@@ -12,9 +12,9 @@ namespace DesarrollosAPI.DTOS
             CreateMap<CompanyRequestWithId, Company>();
             //CreateMap<CompanyRequestWithId, Company>().ForMember(dto => dto.Name, cfg => cfg.MapFrom(entity => entity.Name));
 
-            CreateMap<ProjectRequest, Project>();
-            CreateMap<Project, ProjectResponse>();
-            CreateMap<ProjectRequestWithId, Project>();
+            CreateMap<ProposalRequest, Proposal>();
+            CreateMap<Proposal, ProposalResponse>();
+            CreateMap<ProposalRequestWithId, Proposal>();
 
             CreateMap<AssignmentRequest, Assignment>();
             CreateMap<Assignment, AssignmentResponse>();

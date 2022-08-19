@@ -6,7 +6,7 @@ namespace DesarrollosAPI.Entities
     {
         public RepositoryContext(DbContextOptions options) : base(options) { }
         public DbSet<Company> Companies { get; }
-        public DbSet<Project> Projects { get; }
+        public DbSet<Proposal> Projects { get; }
         public DbSet<Assignment> Assignments { get; }
     }
 }

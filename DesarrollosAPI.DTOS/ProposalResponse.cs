@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DesarrollosAPI.DTOS
 {
-    public class ProjectResponse
+    public class ProposalResponse
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -18,7 +18,7 @@ namespace DesarrollosAPI.DTOS
         [DataType(DataType.Date)]
         public DateTime EndDate { get; set; }
 
-        public ProjectResponse()
+        public ProposalResponse()
         {
 
         }
