@@ -77,3 +77,5 @@
 2022-08-19 15:11:54.09 spid10s     Recovery is complete. This is an informational message only. No user action is required.
 2022-08-19 15:16:57.91 spid56      Attempting to load library 'xplog70.dll' into memory. This is an informational message only. No user action is required.
 2022-08-19 15:16:59.01 spid56      Using 'xplog70.dll' version '2019.150.4236' to execute extended stored procedure 'xp_msver'. This is an informational message only; no user action is required.
+2022-08-19 16:00:10.98 spid61      Attempting to load library 'xpstar.dll' into memory. This is an informational message only. No user action is required.
+2022-08-19 16:00:11.09 spid61      Using 'xpstar.dll' version '2019.150.4236' to execute extended stored procedure 'xp_instance_regread'. This is an informational message only; no user action is required.

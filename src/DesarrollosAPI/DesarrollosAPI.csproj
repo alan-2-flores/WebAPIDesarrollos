@@ -15,4 +15,12 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\DesarrollosAPI.API\DesarrollosAPI.API.csproj" />
+    <ProjectReference Include="..\..\DesarrollosAPI.DTOS\DesarrollosAPI.DTOS.csproj" />
+    <ProjectReference Include="..\..\DesarrollosAPI.Entities\DesarrollosAPI.Entities.csproj" />
+    <ProjectReference Include="..\..\DesarrollosAPI.Repositories\DesarrollosAPI.Persistence.csproj" />
+    <ProjectReference Include="..\..\DesarrollosAPI.Services\DesarrollosAPI.Services.csproj" />
+  </ItemGroup>
+
 </Project>

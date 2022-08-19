@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DesarrollosAPI.Contracts\DesarrollosAPI.Contracts.csproj" />
+    <ProjectReference Include="..\DesarrollosAPI.DTOS\DesarrollosAPI.DTOS.csproj" />
+    <ProjectReference Include="..\DesarrollosAPI.Entities\DesarrollosAPI.Entities.csproj" />
+  </ItemGroup>
+
+</Project>

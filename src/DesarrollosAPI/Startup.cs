@@ -1,8 +1,8 @@
 using AutoMapper;
 using DesarrollosAPI.Contracts;
-using DesarrollosAPI.DTO;
-using DesarrollosAPI.Models;
-using DesarrollosAPI.Repository;
+using DesarrollosAPI.DTOS;
+using DesarrollosAPI.Entities;
+using DesarrollosAPI.Persistence;
 using DesarrollosAPI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
