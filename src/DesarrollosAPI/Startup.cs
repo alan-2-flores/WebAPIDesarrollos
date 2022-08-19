@@ -2,6 +2,7 @@ using AutoMapper;
 using DesarrollosAPI.Contracts;
 using DesarrollosAPI.DTOS;
 using DesarrollosAPI.Entities;
+using DesarrollosAPI.IoC;
 using DesarrollosAPI.Persistence;
 using DesarrollosAPI.Services;
 using Microsoft.AspNetCore.Builder;
@@ -26,30 +27,7 @@ namespace DesarrollosAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
-
-            services.AddDbContext<RepositoryContext>(options =>
-            {
-                options.UseSqlServer(Configuration.GetConnectionString("SQLServer"));
-                options.UseSqlServer(origen => origen.MigrationsAssembly("DesarrollosAPI"));
-            });
-
-            services.AddScoped<ICompanyService, CompanyService>();
-            services.AddScoped<IProposalService, ProposalService>();
-            services.AddScoped<IAssignmentService, AssignmentService>();
-            services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "DesarrollosAPI", Version = "v1" });
-            });
-            //Mapper
-            var mapperConf = new MapperConfiguration(m =>
-            {
-                m.AddProfile(new MappingProfile());
-            });
-            IMapper mapper = mapperConf.CreateMapper();
-            services.AddSingleton(mapper);
-            services.AddMvc();
+            services.AddDependencies(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
