@@ -27,7 +27,12 @@ namespace DesarrollosAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<RepositoryContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SQLServer")));
+
+            services.AddDbContext<RepositoryContext>(options => {
+                options.UseSqlServer(Configuration.GetConnectionString("SQLServer"));
+                options.UseSqlServer(origen => origen.MigrationsAssembly("DesarrollosAPI"));
+            });
+
             services.AddScoped<ICompanyService, CompanyService>();
             services.AddScoped<IProjectService, ProjectService>();
             services.AddScoped<IAssignmentService, AssignmentService>();

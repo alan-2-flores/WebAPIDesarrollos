@@ -19,7 +19,7 @@ namespace DesarrollosAPI.Migrations
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("DesarrollosAPI.Models.Assignment", b =>
+            modelBuilder.Entity("DesarrollosAPI.Entities.Assignment", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -41,7 +41,7 @@ namespace DesarrollosAPI.Migrations
                     b.ToTable("Assignments");
                 });
 
-            modelBuilder.Entity("DesarrollosAPI.Models.Company", b =>
+            modelBuilder.Entity("DesarrollosAPI.Entities.Company", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -59,7 +59,7 @@ namespace DesarrollosAPI.Migrations
                     b.ToTable("Companies");
                 });
 
-            modelBuilder.Entity("DesarrollosAPI.Models.Project", b =>
+            modelBuilder.Entity("DesarrollosAPI.Entities.Project", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -88,15 +88,15 @@ namespace DesarrollosAPI.Migrations
                     b.ToTable("Projects");
                 });
 
-            modelBuilder.Entity("DesarrollosAPI.Models.Assignment", b =>
+            modelBuilder.Entity("DesarrollosAPI.Entities.Assignment", b =>
                 {
-                    b.HasOne("DesarrollosAPI.Models.Company", "Company")
+                    b.HasOne("DesarrollosAPI.Entities.Company", "Company")
                         .WithMany()
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DesarrollosAPI.Models.Project", "Project")
+                    b.HasOne("DesarrollosAPI.Entities.Project", "Project")
                         .WithMany()
                         .HasForeignKey("ProjectId")
                         .OnDelete(DeleteBehavior.Cascade)

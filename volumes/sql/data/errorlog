@@ -79,3 +79,19 @@
 2022-08-19 15:16:59.01 spid56      Using 'xplog70.dll' version '2019.150.4236' to execute extended stored procedure 'xp_msver'. This is an informational message only; no user action is required.
 2022-08-19 16:00:10.98 spid61      Attempting to load library 'xpstar.dll' into memory. This is an informational message only. No user action is required.
 2022-08-19 16:00:11.09 spid61      Using 'xpstar.dll' version '2019.150.4236' to execute extended stored procedure 'xp_instance_regread'. This is an informational message only; no user action is required.
+2022-08-19 19:36:43.64 spid52      Setting database option SINGLE_USER to ON for database 'DevelopmentDB'.
+2022-08-19 19:36:43.73 Logon       Error: 18456, Severity: 14, State: 38.
+2022-08-19 19:36:43.73 Logon       Login failed for user 'sa'. Reason: Failed to open the explicitly specified database 'DevelopmentDB'. [CLIENT: 172.18.0.1]
+2022-08-19 19:36:53.75 Logon       Error: 18456, Severity: 14, State: 38.
+2022-08-19 19:36:53.75 Logon       Login failed for user 'sa'. Reason: Failed to open the explicitly specified database 'DevelopmentDB'. [CLIENT: 172.18.0.1]
+2022-08-19 19:38:11.73 Logon       Error: 18456, Severity: 14, State: 38.
+2022-08-19 19:38:11.73 Logon       Login failed for user 'sa'. Reason: Failed to open the explicitly specified database 'DevelopmentDB'. [CLIENT: 172.18.0.1]
+2022-08-19 19:38:13.03 spid51      [5]. Feature Status: PVS: 0. CTR: 0. ConcurrentPFSUpdate: 1.
+2022-08-19 19:38:13.04 spid51      Starting up database 'DevelopmentDB'.
+2022-08-19 19:38:13.43 spid51      Parallel redo is started for database 'DevelopmentDB' with worker pool size [4].
+2022-08-19 19:38:13.50 spid51      Parallel redo is shutdown for database 'DevelopmentDB' with worker pool size [4].
+2022-08-19 19:38:13.62 spid51      Setting database option READ_COMMITTED_SNAPSHOT to ON for database 'DevelopmentDB'.
+2022-08-19 19:38:13.67 spid51      [5]. Feature Status: PVS: 0. CTR: 0. ConcurrentPFSUpdate: 1.
+2022-08-19 19:38:13.67 spid51      Starting up database 'DevelopmentDB'.
+2022-08-19 19:38:14.02 spid51      Parallel redo is started for database 'DevelopmentDB' with worker pool size [4].
+2022-08-19 19:38:14.08 spid31s     Parallel redo is shutdown for database 'DevelopmentDB' with worker pool size [4].

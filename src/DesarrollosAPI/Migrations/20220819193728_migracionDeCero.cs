@@ -1,9 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-using System;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DesarrollosAPI.Migrations
 {
-    public partial class realease1 : Migration
+    public partial class migracionDeCero : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
