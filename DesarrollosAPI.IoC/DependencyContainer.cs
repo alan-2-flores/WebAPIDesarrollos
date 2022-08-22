@@ -4,13 +4,13 @@ using DesarrollosAPI.Persistence;
 using DesarrollosAPI.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 
 namespace DesarrollosAPI.IoC
 {
     public static class DependencyContainer
     {
-        public static IServiceCollection AddDependencies(this IServiceCollection services, IConfiguration configuration) {
+        public static IServiceCollection AddDependencies(this IServiceCollection services, IConfiguration configuration)
+        {
             services.AddApiControllers()
                 .AddServices()
                 .AddMapper()
