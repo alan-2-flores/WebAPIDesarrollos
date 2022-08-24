@@ -1,10 +1,12 @@
 ﻿using DesarrollosAPI.DTOS;
 using DesarrollosAPI.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 //separar interfaces de services en su respectiva carpeta
 namespace DesarrollosAPI.API
 {
+    [Authorize]
     [Route("api/Projects")]
     [ApiController]
     public class ProposalController : ControllerBase

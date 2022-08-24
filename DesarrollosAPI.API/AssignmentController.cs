@@ -1,10 +1,12 @@
 ﻿using DesarrollosAPI.DTOS;
 using DesarrollosAPI.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace DesarrollosAPI.API
 {
+    [Authorize(Roles ="Admin")]
     [Route("api/Assignments")]
     [ApiController]
     public class AssignmentController : ControllerBase
