@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DesarrollosAPI.Entities;
+using Microsoft.EntityFrameworkCore;
 
-namespace DesarrollosAPI.Entities
+namespace DesarrollosAPI.Persistence
 {
     public class RepositoryContext : DbContext
     {

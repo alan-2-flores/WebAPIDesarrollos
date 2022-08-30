@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace DesarrollosAPI.API
 {
     //[Authorize(Roles ="Admin")]
+    [Authorize]
     [Route("api/Assignments")]
     [ApiController]
     public class AssignmentController : ControllerBase
